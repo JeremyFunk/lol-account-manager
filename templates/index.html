@@ -1,0 +1,138 @@
+<html>
+    <head>
+
+        <style>
+
+            body{
+                background-color: rgb(92, 92, 92);
+            }
+
+            .content{
+                max-width: 960px;
+                margin: 0 auto 0 auto;
+            }
+
+            ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+            }
+
+            .pane{
+              background-color: rgb(41, 41, 41);
+              box-shadow: 2px 3px 4px 3px rgba(0,0,0,0.42);
+              margin-bottom: 10px;
+            }
+            
+            li {
+              float: left;
+            }
+            
+            li a {
+              display: block;
+              color: white;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+            }
+            
+            li a:hover:not(.active) {
+              background-color: #111;
+            }
+            
+            .active {
+              background-color: #c79b3b;
+              box-shadow: 0px 9px 18px 9px rgba(0,0,0,0.32);
+            }
+
+            .accounts {
+                padding: 1px;
+            }
+
+            .button-bar{
+                margin: 20px 0px 10px 20px;
+            }
+
+            td {
+                color: rgb(220, 220, 220);
+                width: 120px;
+                text-align: center;
+            }
+            th {
+                color: white;
+                width: 120px;
+                font-size: large;
+            }
+
+            td a{
+                text-decoration: none;
+                color: rgb(220, 220, 220);
+            }
+        </style>
+
+        
+    </head>
+    <body>
+        <div class="content">
+            <div class="pane">
+                <ul>
+                    <li><a class="active" href="/index">Accounts</a></li>
+                    <li><a href="#news">Contact</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                </ul>
+            </div>
+
+            <div class="pane">
+                <div class="accounts">
+                    <table class="blueTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Login Name</th>
+                                <th>Region</th>
+                                <th>Elo</th>
+                                <th>Last Played</th>
+                                <th>Notes</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <!-- <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    <div class="links"><a href="#">&laquo;</a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">&raquo;</a></div>
+                                </td>
+                            </tr>
+                        </tfoot> -->
+                        <tbody>
+                            {% for account in accounts %}
+                            <tr>
+                                <td>
+                                    <a href="https://{{account.opggRegion}}op.gg/summoner/userName={{account.name}}" target="_blank" rel="noopener noreferrer">{{account.name}}</a>
+                                </td>
+                                <td>{{account.loginName}}</td>
+                                <td>{{account.regionName}}</td>
+                                <td style="color: {{account.eloColor}}">{{account.elo}}<br>{{account.lp}} LP</td>
+                                <td style="color: {{account.datetimeColor}}">{{account.lastPlayed}}</td>
+                                <td>{{account.notes}}</td>
+                                <td><button style="margin-right: 10px;" onclick="window.location.href='/edit/{{account.name}}'">Edit</button><button onclick="window.location.href='/remove/{{account.name}}'">Remove</button></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="button-bar">
+                        <button onclick="window.location.href='/addAccount'">
+                            Add Account
+                        </button>
+                        <button onclick="window.location.href='/refresh'">
+                            Refresh Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+</html>

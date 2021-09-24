@@ -1,0 +1,133 @@
+<html>
+    <head>
+
+        <style>
+
+            body{
+                background-color: rgb(92, 92, 92);
+            }
+
+            .content{
+                max-width: 960px;
+                margin: 0 auto 0 auto;
+            }
+
+            ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+            }
+
+            .pane{
+              background-color: rgb(41, 41, 41);
+              box-shadow: 2px 3px 4px 3px rgba(0,0,0,0.42);
+              margin-bottom: 10px;
+            }
+            
+            li {
+              float: left;
+            }
+            
+            li a {
+              display: block;
+              color: white;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+            }
+            
+            li a:hover:not(.active) {
+              background-color: #111;
+            }
+            
+            .active {
+              background-color: #c79b3b;
+              box-shadow: 0px 9px 18px 9px rgba(0,0,0,0.32);
+            }
+
+            .accounts {
+                padding: 1px;
+            }
+
+            .button-bar{
+                margin: 20px 0px 10px 20px;
+            }
+
+            td {
+                color: rgb(220, 220, 220);
+                width: 120px;
+                text-align: center;
+            }
+            th {
+                color: white;
+                width: 120px;
+                font-size: large;
+            }
+
+            td a{
+                text-decoration: none;
+                color: rgb(220, 220, 220);
+            }
+
+            label{
+                color: white;
+            }
+
+            .form-group{
+                margin-bottom: 2px;
+            }
+
+            .pane{
+            }
+
+            .pane2{
+                
+                padding: 10px 10px 1px 10px;
+            }
+
+            h2{
+                text-align: center;
+                color: white;
+                margin: 0px;
+            }
+        </style>
+
+        
+    </head>
+    <body>
+        <div class="content">
+            <div class="pane">
+                <ul>
+                    <li><a  href="/index">Accounts</a></li>
+                    <li><a href="#news">Contact</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a class="active" href="/register">Register</a></li>
+                </ul>
+            </div>
+
+            <div class="pane pane2">
+                <div>
+                    <h2>
+                        Register
+                    </h2>
+                </div>
+
+                <form action="/pRegister" method="POST">
+                    <div class="form-group">
+                        <label>Username&nbsp;&nbsp;</label> <input type="text" class="form-control" name="name" placeholder="Username">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password&nbsp;&nbsp;&nbsp;</label> <input type="password" class="form-control" name="password" placeholder="Password" >
+                    </div>
+                  
+                    <div class="form-group">
+                        <input type="submit" name="submit" value="Register">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+    
+</html>
